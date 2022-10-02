@@ -36,7 +36,7 @@ void should_ReturnCorrectTemperatureAsCelsius(){
 
 ### JUnit Architecture
 
-![image-20220929074925610](C:\Users\hp\Desktop\Mockito\1)
+![image-20220929074925610](1.png)
 
 On a high level JUnit5 is a combination of three different modules. 
 
@@ -52,7 +52,7 @@ On a high level JUnit5 is a combination of three different modules.
 
 So each Junit test when it is executed it will create a new instance of the test class and its follows different faces as part of the execution. Each face is represented with annotation in Junit5.
 
-![image-20220929083732529](C:\Users\hp\Desktop\Mockito\2)
+![image-20220929083732529](2.png)
 
 **@BeforeAll , @BeforeEach ** : Used to perform initialization tasks for tests.
 
