@@ -4,6 +4,7 @@
 
 
 
+
 #### Pre-Requisite
 
 - Java Programming(Refer Java Class by DurgaSoft on Youtube)
@@ -88,5 +89,44 @@ In JUnit 4, however, we had to use @Test and inside the brackets we provided "ex
 
 @Nested & @RepeatedTest not present in JUnit 4.
 
+
+
 ## Mockito 
 
+It is a mocking framework. 
+
+#### Why Mocking ?
+
+![3](3.png)
+
+**Imagine that you need to write unit tests for your horoscope service, but how can you do that?**
+
+Your unit test, as the name suggests, should only focus on the horoscope service class, which has two other dependencies. Look at the screen now where we try to write a unit test using JUnit only. Look at the setup method. To instantiate the horoscope service, we also had to create new instances of user database and horoscope provider and as we already said, user database connects to a database and horoscope provider looks for a horoscope over the Internet on a website.
+
+Our test, which was supposed to be a unit test focused on the horoscope service class, is no longer a unit test because under the hood it will also connect to a real database and it will also look up a horoscope on a website available on the Internet.
+
+What if we don't have a database installed?
+
+What if we don't have Internet connection?
+
+Naturally, the test will fail when we run it, but it will fail for the wrong reason: not because the class under test, the horoscope service, works incorrectly, but because one of its dependencies has a problem.
+
+This could be fine for an integration test, but we don't want such situations in a unit test.
+
+If we write unit tests for horoscopes service, we want the tests to fail when and only when the horoscopes service class contains bugs.
+
+So what can we do to actually test the horoscope service class?
+
+Can we somehow avoid connecting to a real user database and going online to check the horoscopes?
+
+Luckily, we can, instead of using real dependencies, we will use dummy dependencies, also known as mocks. Treat them as fake objects that only pretend to be the dependencies we need.
+
+![4](4.png)
+
+Here we didn't use the plain old Java new operator to create dependencies. Instead we use the mock method from Mockito to create dummy objects that behave as if they were real object of type User Database and Horoscope Provider.
+
+##### Mocking is only done for its dependencies but we can't mock the method of same class itself.
+
+### Return Values 
+
+Mocks return the default values when it function are called. We can also specify our own return values for specific input.
